@@ -1,0 +1,30 @@
+<idea-plugin>
+  <id>com.ansorgit.intellijSamples.startupActivity</id>
+  <name>[Demo] Plugin startup activites</name>
+  <version>0.1</version>
+
+  <description><![CDATA[
+      This plugin demonstrates how a plugin can run code as soon as it's loaded.
+    ]]></description>
+
+  <idea-version since-build="145.0"/>
+  <depends>com.intellij.modules.lang</depends>
+
+  <application-components>
+    <component>
+      <implementation-class>com.ansorgit.intellijDocs.startupActivity.MyApplicationComponent</implementation-class>
+    </component>
+  </application-components>
+
+    <project-components>
+        <component>
+            <implementation-class>com.ansorgit.intellijDocs.startupActivity.MyProjectComponent</implementation-class>
+        </component>
+    </project-components>
+
+  <extensions defaultExtensionNs="com.intellij">
+      <preloadingActivity implementation="com.ansorgit.intellijDocs.startupActivity.MyPreloadingActivity"/>
+
+      <postStartupActivity implementation="com.ansorgit.intellijDocs.startupActivity.MyPostStartupActivity"/>
+  </extensions>
+</idea-plugin>
